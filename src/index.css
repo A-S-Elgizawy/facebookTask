@@ -798,9 +798,9 @@
     border-radius: 10px;
     justify-content: space-between;
 }
-.account-container .content form .gender p{
-  font-size: clamp(10px,2.5vw,13px);
-  margin-bottom: .3rem;
+.account-container .content form .gender label{
+  font-size: clamp(12px,2.5vw,13px);
+  /* margin-bottom: .3rem; */
 }
 
 .account-container .content form .mobil-pass{
@@ -847,22 +847,25 @@
   .account-container .content form .name,
   .account-container .content form .date,
   .account-container .content form .gender{
-    margin-bottom: .6rem;
+    margin-bottom: .8rem;
   }
 
   .account-container .content form .name .input-container input {
-      padding: .4rem .4rem .5rem;
+      padding: .5rem .8rem .6rem;
   }
   .account-container .content form .date .input-container input {
-      padding: .4rem .4rem .5rem;
+      padding: .4rem .5rem ;
   }
   .account-container .content form .gender .input-container {
-      padding: .4rem .4rem .5rem;
+      padding: .4rem .5rem .5rem;
   }
   .account-container .content form .mobil-pass input{
-    padding: .4rem .4rem .5rem;
-    margin-bottom: 0.6rem;
+    padding: .5rem .8rem .6rem;
+    margin-bottom: 0.8rem;
   }
+    .account-container input::placeholder{
+      font-size: 13px;
+    }
 .account-container .content form .footer button{
      font-size: 17px;
      padding: .3rem 3rem .4rem;
@@ -943,14 +946,11 @@
   white-space: nowrap;
 }
 @media (max-width:576px) {
-  .login form input{
-    padding: .4rem .4rem .5rem;
-  }
   .login form button{
     padding: .4rem .5rem .5rem;
   }
   .login form .btn-con button{
-    padding: .4rem 2.1rem .6rem;
+    padding: .4rem 2.1rem .5rem;
   }
 }
 /* ===== Lon in ===== */
