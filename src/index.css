@@ -74,6 +74,13 @@
  .personal-feature .featuers .img-con:hover{
     background-color: #f0f2f5;
 }
+@media (max-width:576px) {
+    .personal-feature .featuers .img-con img{
+      width: 18px;
+      height: 18px;
+      object-fit: cover;
+    }
+}
 /* ============ create-post ========= */
 .create-post {
     width: 100vw;
@@ -92,30 +99,32 @@
 .create-post .content{
     border-radius: 10px;
     background-color: white;
-    padding: .8rem .8rem;
+    padding: .8rem;
     /* width: 40%; */
     box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 .create-post .content .header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
+    text-align: center;
 }
 
 .create-post .content .header h3{
     font-size: 1.5rem;
-    width: 95%;
     text-align: center;
+    margin: 0;
 }
 .create-post .content .header .icon-con{
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #e2e5e9; 
     border-radius: 50%;
     cursor: pointer;
+    position: absolute;
+    top: -2px;
+    right: 0rem;
 }
 .create-post .content .header .icon-con i{
   font-size: 18px;
@@ -182,7 +191,8 @@
     width: 40%;
     font-weight: 500;
     margin: 0;
-    font-size: clamp(14px, 2vw, 16px);
+    font-size: clamp(13px, 2vw, 16px);
+    padding-bottom: 2px;
 }
 .create-post .content .options-post .options{
     display: flex;
@@ -204,6 +214,13 @@
 
 .create-post .content .options-post .img-con:hover{
     background-color: #f0f2f5;
+}
+@media (max-width:576px) {
+  .create-post .content .options-post .img-con img{
+    width: 18px;
+    height: 18px;
+    object-fit: cover;
+  }
 }
 .create-post .content .options-post .img-con i{
     font-size: 1.8rem;
@@ -346,16 +363,17 @@
     width: 100%;
     aspect-ratio:auto;
 }
+
 .post .post-Container .img-post img{
     height: auto;
     max-width: 100%;
     object-fit: contain;
 }
-/* @media (max-width: 768px) {
+@media (max-width: 576px) {
   .post .post-Container .img-post {
-    aspect-ratio: auto;
+    max-height: 300px;
   }
-} */
+}
 .post .post-Container .footer{
     padding: .5rem .8rem;
 }
@@ -556,58 +574,29 @@
   display: flex;
   justify-content: center;
 }
-.post .post-Container .bottom .input-con{
+/* .post .post-Container .bottom .input-con{
     background-color: #eee;
     border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: .1rem 1rem;
-}
-.post .post-Container .bottom .input-con{
-    background-color: #eee;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .1rem 1rem;
-}
-.post .post-Container .bottom .input-con{
-    background-color: #eee;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .1rem 1rem;
-}
-.post .post-Container .bottom .input-con.active{
-    background-color: #eee;
-    border-radius: 20px;
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    padding: .4rem .8rem;
-    
-}
-.post .post-Container .bottom  .input-con textarea{
+} */
+ .post .post-Container .bottom  .input-con{
+  width: calc(100% - 43px);
+ }
+.post .post-Container .bottom  .input-con input{
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: #e1e3e6;
+    border-radius: 40px;
     width: 100%;
-    height: 1.5rem;
-    overflow: hidden;
-    resize: none;
-    line-height:1.4;
+    padding: .3rem .7rem .4rem;
 }
-.post .post-Container .bottom  .input-con.active textarea{
-    font-size: .9rem;
-    font-weight: 400;
-}
-
-.post .post-Container .bottom  .input-con textarea::placeholder{
+/* .post .post-Container .bottom  .input-con textarea::placeholder{
     color: rgb(119, 119, 119);
     font-size: .9rem;
-}
+} */
 
 .post .post-Container .bottom  .input-con .icons{
     display: flex;
@@ -627,6 +616,12 @@
     display: flex;
     align-items: center;
 }
+.footer .bottom{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
 .post .post-Container .bottom  .input-con .icons .icon-con {
     width: 35px;
     height: 35px;
@@ -675,12 +670,11 @@
 }
 .post .post-Container .header .data-post .right .icon-con  .dropdown .item p{
   font-weight: 500;
-  /* font-size: 15px; */
-  font-size: clamp(12px , 2.5vw , 15px);
+  font-size: clamp(13px , 2.5vw , 15px);
 }
 .post .post-Container .header .data-post .right .icon-con .dropdown .item i{
    /* font-size: 23px; */
-    font-size: clamp(21px , 2.5vw , 23px);
+    font-size: clamp(22px , 2.5vw , 23px);
 }
 .post .post-Container .header .data-post .right .icon-con .dropdown .item .detail{
   font-size: clamp(8px , 2vw , 11px);
@@ -688,7 +682,10 @@
 }
 @media (max-width:576px) {
   .dropdown {
-    width: 56vw;
+    width: 63vw;
+  }
+  .dropdown .item{
+    padding: .3rem .3rem;
   }
 }
 
@@ -724,7 +721,7 @@
   width: 100%;
 }
 .account-container .content form .head{
-  padding: .5rem 0;
+  padding: .7rem 0;
   text-align: center;
   border-bottom: 1px solid #d4d4d4;
 }
@@ -732,9 +729,11 @@
   padding: 1rem;
 }
 .account-container .content form .head h2{
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
+  font-size: clamp(1.5rem,3vw,1.7rem);
   margin-bottom: .3rem;
   font-weight: 700;
+  margin: 0;
 }
 .account-container .content form .head p{
   margin: 0;
@@ -760,7 +759,7 @@
 
 .account-container .content form .name .input-container input{
   border: 1px solid #d4d4d4;
-  padding: .8rem;
+   padding: .7rem .7rem .8rem;
   border-radius: 10px;
   width: 100%;
 }
@@ -778,7 +777,7 @@
 }
 .account-container .content form .date .input-container input{
   border: 1px solid #d4d4d4;
-  padding: .8rem;
+   padding: .7rem .7rem .8rem;
   border-radius: 10px;
   width:100%;
 }
@@ -795,12 +794,12 @@
     display: flex;
     align-items: center;
     border: 1px solid #d4d4d4;
-    padding: .8rem;
+     padding: .7rem .7rem .8rem;
     border-radius: 10px;
     justify-content: space-between;
 }
 .account-container .content form .gender p{
-  font-size: 13px;
+  font-size: clamp(10px,2.5vw,13px);
   margin-bottom: .3rem;
 }
 
@@ -812,7 +811,7 @@
 }
 .account-container .content form .mobil-pass input{
   border: 1px solid #d4d4d4;
-  padding: .8rem;
+   padding: .7rem .7rem .8rem;
   border-radius: 10px;
   width: 100%;
   margin-bottom: 0.8rem;
@@ -840,9 +839,35 @@
 }
 .account-container .content form .footer .btn-allready p{
   color: #0866ff;
-  font-size: clamp(15px,2.5vw,17px);
+  font-size: clamp(14px,2.5vw,17px);
   margin-bottom: .5rem;
   cursor: pointer;
+}
+@media (max-width:576px) {
+  .account-container .content form .name,
+  .account-container .content form .date,
+  .account-container .content form .gender{
+    margin-bottom: .6rem;
+  }
+
+  .account-container .content form .name .input-container input {
+      padding: .4rem .4rem .5rem;
+  }
+  .account-container .content form .date .input-container input {
+      padding: .4rem .4rem .5rem;
+  }
+  .account-container .content form .gender .input-container {
+      padding: .4rem .4rem .5rem;
+  }
+  .account-container .content form .mobil-pass input{
+    padding: .4rem .4rem .5rem;
+    margin-bottom: 0.6rem;
+  }
+.account-container .content form .footer button{
+     font-size: 17px;
+     padding: .3rem 3rem .4rem;
+  }
+
 }
 /* ===== account ===== */
 /* ===== Lon in ===== */
@@ -876,7 +901,7 @@
 }
 .login form input{
   border: 1px solid #d4d4d4;
-  padding: .8rem;
+   padding: .7rem .7rem .8rem;
   border-radius: 10px;
   width: 100%;
   margin-bottom: 0.8rem;
@@ -916,6 +941,17 @@
   margin: 0;
   width: fit-content;
   white-space: nowrap;
+}
+@media (max-width:576px) {
+  .login form input{
+    padding: .4rem .4rem .5rem;
+  }
+  .login form button{
+    padding: .4rem .5rem .5rem;
+  }
+  .login form .btn-con button{
+    padding: .4rem 2.1rem .6rem;
+  }
 }
 /* ===== Lon in ===== */
 /* ======= delete ===== */
@@ -966,10 +1002,10 @@
   background-color: #d4d4d4;
 }
 .delete-container  .content .body{
-  padding: 1rem;
+  padding: .8rem 1rem 1rem;
 }
 .delete-container  .content .body p{
-  font-size: clamp(14px,2.5vw,16px);
+  font-size: clamp(13px,2.5vw,16px);
 }
 .delete-container  .content .btns{
   display: flex;

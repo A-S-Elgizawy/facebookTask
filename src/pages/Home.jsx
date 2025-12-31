@@ -116,7 +116,7 @@ const toggleDropdown = (id, e) => {
             <div className="header">
                 <h3>Create post</h3>
                 <div className="icon-con" onClick={() => setShowPage(false)}>
-                    <i className="fa-solid fa-xmark"></i>
+                    <i className='bx  bx-x'></i> 
                 </div>
             </div>
             <hr/>
@@ -258,23 +258,12 @@ const toggleDropdown = (id, e) => {
                             </div>
                         </div>
                         <hr/>
-                        <div className="bottom row">
-                            <div className="col-1 img-comment">
+                        <div className="bottom ">
                             <div className="img-con">
-                                {/* <img src="" alt=""/> */}
+                                <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1769040000&v=beta&t=KBF3rcGFyVebJKa5tQCxhN0XnvT2sQw5tdu7oI1xt8A" alt=""/>
                             </div>
-                            </div>
-                            <div className="col-11">
                             <div className="input-con" >
-                                <textarea  name="" id="" placeholder="Comment as Ahmed S El Gezawy" rows="1"  dir="auto" ></textarea>
-                                <div className="icons">
-                                <div className="icons-option">
-                                    <div className="icon-con"><i className="fa-regular fa-camera"></i></div>
-                                    <div className="icon-con"><i className="fa-regular fa-face-smile"></i></div>
-                                </div>
-                                <i className="fa-solid fa-paper-plane"  ></i>
-                                </div>
-                            </div>
+                                <input type="text" placeholder="comment"/>
                             </div>
                         </div>
                         </div>
