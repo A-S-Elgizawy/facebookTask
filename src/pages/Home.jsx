@@ -79,7 +79,7 @@ const toggleDropdown = (id, e) => {
                     <div className="img-con myphoto">
                         <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1768435200&v=beta&t=GKTeWalEiyx3p5LiMUGdcUMZBMvAy5XYsXnxi8xofF0" alt="" />
                     </div>
-                    <input type="text" placeholder="What's your on mind, Ahmed" onClick={() => setShowPage(true)} />
+                    <input type="text" placeholder="What's your on mind?" onClick={() => setShowPage(true)} />
                     
                     <div className="featuers">
                         <div className="img-con vedio" >
