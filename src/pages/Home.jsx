@@ -65,8 +65,7 @@ useEffect(() => {
             ...prev,
             [id]: !prev[id],   // يفتح ويقفل لنفس البوست
         }));
-
-
+        
   const rect = e.currentTarget.getBoundingClientRect();
   const spaceBelow = window.innerHeight - rect.bottom;
 
