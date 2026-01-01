@@ -76,7 +76,7 @@
 }
 @media (max-width:576px) {
     .personal-feature .featuers .img-con img{
-      width: 25px;
+      width: 26px;
       height: 25px;
       object-fit: cover;
     }
@@ -123,7 +123,7 @@
 }
 
 .create-post .content .header h3{
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem,3vw,1.5rem);
     text-align: center;
     margin: 0;
 }
@@ -246,11 +246,16 @@
   .create-post .content .options-post .options{
     width: 15%;
   }
+  .create-post .content .options-post .img-con{
+     width: 53px;
+     border-radius: 10px;
+  }
   .create-post .content .options-post .img-con img{
-    width: 25px;
+    width: 26px;
     height: 25px;
     object-fit: cover;
   }
+  
 }
 .create-post .content .options-post .img-con i{
     font-size: 1.8rem;
@@ -275,6 +280,11 @@
   cursor: pointer;
   color: white;
   cursor: pointer;
+}
+@media (max-width:576px) {
+   .create-post .content .post{
+    margin-top: 0.8rem;
+   }
 }
 .create-post .content .post:disabled {
   opacity: 0.9;
@@ -714,7 +724,7 @@
 }
 @media (max-width:576px) {
   .dropdown {
-    width: 67vw;
+    width: 69vw;
   }
   .dropdown .item{
     padding: .3rem .3rem;
@@ -1091,7 +1101,12 @@
     padding: .7rem .8rem ;
    }
    .delete-container .content .head .icon-con{
-    width: 28px;
-    height: 28px;
+    width: 27px;
+    height: 27px;
+    top: .5rem;
+    right: .6rem;
    }
+      .delete-container .content .head .icon-con i{
+        font-size: 16px;
+      }
 }
