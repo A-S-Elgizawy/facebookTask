@@ -50,7 +50,7 @@
     width: 66%;
 }
   .personal-feature input::placeholder{
-      font-size: clamp(12.5px, 2vw, 16px);
+      font-size: clamp(14px, 2vw, 16px);
   }
   .personal-feature input:hover{
     background-color: #f0f2f5;
@@ -60,7 +60,7 @@
     justify-content: center;
     align-items: center;
     /* gap: 0.5rem; */
-    width: 34%;
+    width: 44%;
 }
   .personal-feature .featuers .img-con {
     display: flex;
@@ -76,9 +76,23 @@
 }
 @media (max-width:576px) {
     .personal-feature .featuers .img-con img{
-      width: 18px;
-      height: 18px;
+      width: 30px;
+      height: 30px;
       object-fit: cover;
+    }
+    .personal-feature .featuers .img-con{
+      width: 100%;
+    }
+    .personal-feature input{
+      width: 85%;
+      padding: .6rem 1rem .7rem ;
+    }
+    .personal-feature .featuers{
+      width: 15%;
+    }
+    .personal-feature .featuers .vedio,
+    .personal-feature .featuers .emo{
+      display: none;
     }
 }
 /* ============ create-post ========= */
@@ -191,8 +205,8 @@
     width: 40%;
     font-weight: 500;
     margin: 0;
-    font-size: clamp(13px, 2vw, 16px);
-    padding-bottom: 2px;
+    font-size: clamp(15px, 2vw, 17px);
+    /* padding-bottom: 2px; */
 }
 .create-post .content .options-post .options{
     display: flex;
@@ -216,9 +230,25 @@
     background-color: #f0f2f5;
 }
 @media (max-width:576px) {
+  .create-post .content .options-post .tempo{
+    display: none;
+  }
+  .create-post .content .options-post{
+    justify-content: space-between;
+  }
+  .create-post .content .options-post .options{
+    width: 0;
+    justify-content: center;
+  }
+  .create-post .content .options-post p{
+    width: 85%;
+  }
+  .create-post .content .options-post .options{
+    width: 15%;
+  }
   .create-post .content .options-post .img-con img{
-    width: 18px;
-    height: 18px;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
   }
 }
@@ -309,9 +339,8 @@
 }
 .post .post-Container .header .data-post .left .text .name{
     color: black;
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 500;
-
 }
 .post .post-Container .header .data-post .left .text .hour{
     color: gray;
@@ -352,7 +381,7 @@
 .post .post-Container .header .summary p{
     padding-top: .5rem;
     /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: clamp(.2rem,3vw,1rem);
+    font-size: clamp(16px,2.5vw,17px);
     font-weight: 400;
 }
 .post .post-Container .img-post{
@@ -372,6 +401,9 @@
 @media (max-width: 576px) {
   .post .post-Container .img-post {
     max-height: 300px;
+  }
+  .post .post-Container .img-post img{
+    object-fit: cover;
   }
 }
 .post .post-Container .footer{
@@ -588,7 +620,7 @@
 .post .post-Container .bottom  .input-con input{
     border: none;
     outline: none;
-    background-color: #e1e3e6;
+    background-color: #f0f2f5;
     border-radius: 40px;
     width: 100%;
     padding: .3rem .7rem .4rem;
@@ -682,7 +714,7 @@
 }
 @media (max-width:576px) {
   .dropdown {
-    width: 63vw;
+    width: 65vw;
   }
   .dropdown .item{
     padding: .3rem .3rem;
@@ -844,27 +876,42 @@
   cursor: pointer;
 }
 @media (max-width:576px) {
+  .account-container .content form .body{
+    padding: .8rem;
+  }
   .account-container .content form .name,
   .account-container .content form .date,
   .account-container .content form .gender{
     margin-bottom: .8rem;
   }
-
+  .account-container .content form .date .date-con{
+    gap: .8rem;
+  }
+  .account-container .content form .gender .gender-con{
+    gap: .8rem;
+  }
   .account-container .content form .name .input-container input {
       padding: .5rem .8rem .6rem;
+      border-radius: 8px;
   }
+    .account-container .content form .gender p{
+      font-size: 13px;
+    }
   .account-container .content form .date .input-container input {
       padding: .4rem .5rem ;
+      border-radius: 8px;
   }
   .account-container .content form .gender .input-container {
-      padding: .4rem .5rem .5rem;
+      padding: .4rem .5rem ;
+      border-radius: 8px;
   }
   .account-container .content form .mobil-pass input{
     padding: .5rem .8rem .6rem;
     margin-bottom: 0.8rem;
+    border-radius: 8px;
   }
     .account-container input::placeholder{
-      font-size: 13px;
+      font-size: 14.5px;
     }
 .account-container .content form .footer button{
      font-size: 17px;
@@ -877,6 +924,7 @@
 .login{
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1rem;
   background-color: #f0f2f5;
   width: 100%;
@@ -1031,4 +1079,16 @@
   border: none;
   font-weight: 600;
   font-size: 1rem;
+}
+@media (max-width:576px) {
+  .delete-container .content .head{
+    padding: .7rem;
+  }
+   .delete-container .content .body{
+    padding: .7rem .8rem ;
+   }
+   .delete-container .content .head .icon-con{
+    width: 28px;
+    height: 28px;
+   }
 }

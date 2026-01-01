@@ -21,7 +21,7 @@ const Account = () =>{
                          <input type="text" placeholder="Surname"/>
                     </div>
                 </div>
-                <div className="date">
+                {/* <div className="date">
                     <p>Date of birth</p>
                     <div className="date-con">
                     <div className="input-container">
@@ -34,7 +34,7 @@ const Account = () =>{
                          <input type="date" />
                     </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="gender">
                     <p>Gender</p>
                     <div className="gender-con">

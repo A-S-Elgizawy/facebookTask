@@ -82,7 +82,7 @@ const toggleDropdown = (id, e) => {
                     <input type="text" placeholder="What's your on mind, Ahmed" onClick={() => setShowPage(true)} />
                     
                     <div className="featuers">
-                        <div className="img-con" >
+                        <div className="img-con vedio" >
                             <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yr/r/c0dWho49-X3.png" alt="" />
                         </div>
                         <div className="img-con" onClick={() => setShowPage(true)}>
@@ -91,7 +91,7 @@ const toggleDropdown = (id, e) => {
                                 <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt="" />
                             </label>
                         </div>
-                        <div className="img-con">
+                        <div className="img-con emo">
                             <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt="" />
                         </div>
                     </div>
@@ -143,19 +143,19 @@ const toggleDropdown = (id, e) => {
                         <img  src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt=""/>
                         </label>
                     </div>
-                    <div className="img-con" data-text="Tage people">
+                    <div className="img-con tempo" data-text="Tage people">
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yq/r/b37mHA1PjfK.png" alt=""/>
                     </div>
-                    <div className="img-con" data-text="Feeling/Activity">
+                    <div className="img-con tempo" data-text="Feeling/Activity">
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt=""/>
                     </div>
-                    <div className="img-con" data-text="checke in">
+                    <div className="img-con tempo" data-text="checke in">
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/8zlaieBcZ72.png" alt=""/>
                     </div>
-                    <div className="img-con" data-text="GIF">
+                    <div className="img-con tempo" data-text="GIF">
                         <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yT/r/q7MiRkL7MLC.png" alt=""/>
                     </div>
-                    <div className="img-con" data-text="More">
+                    <div className="img-con tempo" data-text="More">
                         <i className='bx  bx-dots-horizontal-rounded'></i> 
                     </div>
                 </div>
@@ -174,7 +174,7 @@ const toggleDropdown = (id, e) => {
                         <div className="data-post">
                             <div className="left">
                             <div className="img-con">
-                                <img src="https://scontent.fcai21-4.fna.fbcdn.net/v/t39.30808-1/552215317_3125705140935348_3117049517644095522_n.jpg?stp=cp0_dst-jpg_s40x40_tt6&_nc_cat=102&ccb=1-7&_nc_sid=1d2534&_nc_ohc=jX10d4mE48gQ7kNvwH-HFi3&_nc_oc=AdmXnYrUYoqZNgFsjNdU4QhrSxDYohHvz09kw9Sjn81cJWolByjc3NHtQg-YPouBoIM&_nc_zt=24&_nc_ht=scontent.fcai21-4.fna&_nc_gid=F_3jHkFQRHsO_mYGKBNwpQ&oh=00_AfjwOFws1155Wduwjm3xPUrpB-r-EZbFBuHt7Jp2bU5zjw&oe=691A6EB3" alt=""/>
+                                <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1769040000&v=beta&t=KBF3rcGFyVebJKa5tQCxhN0XnvT2sQw5tdu7oI1xt8A" alt=""/>
                             </div>
                             <div className="text">
                                 <p className="name">Amir Abdelgelel</p>
