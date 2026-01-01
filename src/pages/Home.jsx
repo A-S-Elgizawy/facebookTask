@@ -8,9 +8,11 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const [showPage, setShowPage] = useState(false);
   const [showDelete, setShowDelete] = useState(false)
+  const [selectedPostId, setSelectedPostId] = useState(null);
   const [opendetails, setOpendetails] = useState({});
   const [preview, setPreview] = useState(null);
   const [position, setPosition] = useState("down");
+  const [editId, setEditId] = useState(null);
   const menuRef = useRef({})
   const isDisabled = !text && !image;
 
@@ -21,8 +23,8 @@ const Home = () => {
       setPreview(URL.createObjectURL(file));
     }
   };
-
-
+   
+   const User = JSON.parse(localStorage.getItem("user") || "{}");
 
 //   =======
   const handleSubmit = (e) => {
@@ -38,7 +40,40 @@ const Home = () => {
     setPosts([newPost, ...posts]);
     setText("");
     setImage(null);
-    setPreview(null);
+    setPreview(null); 
+    setShowPage(false)
+  };
+
+const deletepost = (id) => {
+  setPosts(prevPosts =>
+    prevPosts.filter(post => post.id !== id)
+  );
+  setShowDelete(false);
+  setSelectedPostId(null);
+};
+
+  // ✏️ تجهيز التعديل
+  const startEdit = (post) => {
+    setText(post.text);
+    setImage(null);          // file جديد لاحقًا
+    setPreview(post.image)
+    setEditId(post.id);
+  };
+
+  // ✏️ حفظ التعديل
+  const updatePost = () => {
+    setPosts(prevPosts =>
+      prevPosts.map(post =>
+        post.id === editId
+          ? { ...post, text , image: preview || post.image }
+          : post
+      )
+    );
+
+    setText("");
+    setImage(null);
+    setEditId(null);
+    setPreview(null)
   };
   
 useEffect(() => {
@@ -74,15 +109,17 @@ useEffect(() => {
   } else {
     setPosition("down");
   }
-};
 
+   
+};
+const profileImage = localStorage.getItem("profileImage");
   return (
     <div className="post-container row gx-0">
         {/*add post*/}
         <div className="post col-lg-7 col-md-7 col-sl-12">
             <div className="personal-feature ">
                     <div className="img-con myphoto">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1768435200&v=beta&t=GKTeWalEiyx3p5LiMUGdcUMZBMvAy5XYsXnxi8xofF0" alt="" />
+                        <img src={profileImage || "/default-avatar.png"} alt="" />
                     </div>
                     <input type="text" placeholder="What's your on mind?" onClick={() => setShowPage(true)} />
                     
@@ -103,19 +140,9 @@ useEffect(() => {
             </div>
         </div>
 
-      {/* Posts */}
-      {/* <div className="posts">
-        {posts.map((post) => (
-          <div key={post.id} className="post">
-            <p>{post.text}</p>
-            {post.image && <img src={post.image} alt="post" />}
-          </div>
-        ))}
-      </div> */}
-
         {/*create-post*/}
         {showPage && (
-    <div className="create-post row gx-0" >
+         <div className="create-post row gx-0" >
          <div className="content col-lg-7 col-md-7 col-sl-12">
             <form action="" onSubmit={handleSubmit}>
             <div className="header">
@@ -127,9 +154,9 @@ useEffect(() => {
             <hr/>
             <div className="profile">
                 <div className="img-con">
-                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1764806400&v=beta&t=jurAOopIOCrZLDo4x3tyYpGId2qN166RETTFpAzH900" alt=""/>
+                    <img src={profileImage || "/default-avatar.png"} alt=""/>
                 </div>
-                <p>Ahmed Elgizawy</p>
+                <p>{User?.firstname} {User?.surname}</p>
             </div>
             <div className="caption-img">
             <input type="text" placeholder="What's on your mind, Ahmed" value={text}  onChange={(e) => setText(e.target.value)}/>
@@ -168,7 +195,7 @@ useEffect(() => {
             <button  className={`post ${!isDisabled ? "active" : ""}`}>Post</button>
             </form>
          </div>
-    </div>
+         </div>
         )}
 
         {/* posts */}
@@ -179,10 +206,10 @@ useEffect(() => {
                         <div className="data-post">
                             <div className="left">
                             <div className="img-con">
-                                <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1769040000&v=beta&t=KBF3rcGFyVebJKa5tQCxhN0XnvT2sQw5tdu7oI1xt8A" alt=""/>
+                                <img src={profileImage || "/default-avatar.png"} alt=""/>
                             </div>
                             <div className="text">
-                                <p className="name">Amir Abdelgelel</p>
+                                <p className="name">{User?.firstname} {User?.surname}</p>
                                 <div >
                                 <p className="hour"> 2  . <i className="fa-solid fa-earth-americas"></i></p>
                                 </div>
@@ -196,7 +223,7 @@ useEffect(() => {
                                         <i className='bx  bxs-pin'></i> 
                                         <p>Pin post</p>
                                     </div>
-                                    <div className="item" onClick={() => console.log('hello')}>
+                                    <div className="item">
                                         <i className='bx  bxs-bookmark-alt'></i>  
                                         <div>
                                         <p>Save post</p>
@@ -204,7 +231,7 @@ useEffect(() => {
                                         </div>
                                     </div>
                                     <hr />
-                                    <div className="item">
+                                    <div className="item" onClick={() => startEdit(post)}>
                                         <i className='bx  bxs-edit'></i>    
                                         <p>Edit post</p>
                                     </div>
@@ -225,7 +252,7 @@ useEffect(() => {
                                         <p>Embed</p>
                                     </div>
                                     <hr />
-                                     <div className="item" onClick={() => setShowDelete(true)}>
+                                     <div className="item" onClick={() => {setSelectedPostId(post.id); setShowDelete(true)}}>
                                         <i className='bx  bxs-trash-alt'></i>    
                                         <div>
                                         <p>Move to trash</p>
@@ -265,7 +292,7 @@ useEffect(() => {
                         <hr/>
                         <div className="bottom ">
                             <div className="img-con">
-                                <img src="https://media.licdn.com/dms/image/v2/D5603AQHAyAjny9anaQ/profile-displayphoto-scale_100_100/B56ZoqmV.wJkAg-/0/1761651287291?e=1769040000&v=beta&t=KBF3rcGFyVebJKa5tQCxhN0XnvT2sQw5tdu7oI1xt8A" alt=""/>
+                                <img src={profileImage || "/default-avatar.png"} alt=""/>
                             </div>
                             <div className="input-con" >
                                 <input type="text" placeholder="comment"/>
@@ -276,26 +303,83 @@ useEffect(() => {
                 </div>
             ))}
 
-        {/* delete  */}
-        {showDelete && (
-           <div className="delete-container row gx-0">
-            <div className="content  col-lg-7 col-md-7 col-sl-12">
-                <div className="head">
-                    <h2>Move to your trash?</h2>
-                    <div className="icon-con" onClick={() => setShowDelete(false)}>
-                        <i className='bx  bx-x'></i> 
-                    </div>
-                </div>
-                <div className="body">
-                <p>Items in your trash will be automatically deleted after 30 days. You can delete them from your trash earlier by going to activity log in settings.</p>
-                 <div className="btns">
-                    <button className="cancel" onClick={() => setShowDelete(false)}>Cancel</button>
-                    <button className="move">Move</button>
-                 </div>
+        {editId && (
+        <div className="create-post row gx-0" >
+         <div className="content col-lg-7 col-md-7 col-sl-12">
+            <form action="" onSubmit={updatePost}>
+            <div className="header">
+                <h3>Edit post</h3>
+                <div className="icon-con" onClick={() => setEditId(null)}>
+                    <i className='bx  bx-x'></i> 
                 </div>
             </div>
-           </div>
-        )}
+            <hr/>
+            <div className="profile">
+                <div className="img-con">
+                    <img src={profileImage || "/default-avatar.png"} alt=""/>
+                </div>
+                <p>{User?.firstname} {User?.surname}</p>
+            </div>
+            <div className="caption-img">
+            <input type="text" placeholder="What's on your mind, Ahmed" value={text}  onChange={(e) => setText(e.target.value)}/>
+                    {preview && (
+                    <div className="img-con">
+                        <img src={preview} alt="preview" />
+                    </div>
+                    )}
+            </div>
+               <div className="options-post">
+                <p>Add to your post</p>
+                <div className="options">
+                    <div className="img-con"  data-text="Photo/vedio" >
+                    <input hidden id="upload" type="file" accept="image/*"  onChange={handleImage}/>
+                        <label htmlFor="upload">
+                        <img  src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt=""/>
+                        </label>
+                    </div>
+                    <div className="img-con tempo" data-text="Tage people">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yq/r/b37mHA1PjfK.png" alt=""/>
+                    </div>
+                    <div className="img-con tempo" data-text="Feeling/Activity">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt=""/>
+                    </div>
+                    <div className="img-con tempo" data-text="checke in">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/8zlaieBcZ72.png" alt=""/>
+                    </div>
+                    <div className="img-con tempo" data-text="GIF">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yT/r/q7MiRkL7MLC.png" alt=""/>
+                    </div>
+                    <div className="img-con tempo" data-text="More">
+                        <i className='bx  bx-dots-horizontal-rounded'></i> 
+                    </div>
+                </div>
+            </div>
+            <button type="submit" className="post active">Save</button>
+            </form>
+         </div>
+        </div>            
+      )}
+
+        {/* delete  */}
+                {showDelete && (
+                <div className="delete-container row gx-0">
+                                <div className="content  col-lg-7 col-md-7 col-sl-12">
+                                    <div className="head">
+                                        <h2>Move to your trash?</h2>
+                                        <div className="icon-con" onClick={() => setShowDelete(false)}>
+                                            <i className='bx  bx-x'></i> 
+                                        </div>
+                                    </div>
+                                    <div className="body">
+                                    <p>Items in your trash will be automatically deleted after 30 days. You can delete them from your trash earlier by going to activity log in settings.</p>
+                                    <div className="btns">
+                                        <button className="cancel" onClick={() => setShowDelete(false)}>Cancel</button>
+                                        <button className="move" onClick={() => deletepost(selectedPostId)}>Move</button>
+                                    </div>
+                                    </div>
+                                </div>
+                 </div>
+                )}
     </div>
   );
 };

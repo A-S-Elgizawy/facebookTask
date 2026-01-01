@@ -7,18 +7,20 @@
   margin: 0;
  }
  body{
-      background-color: #f0f2f5;
+    background-color: #f0f2f5;
  }
  .post-container{
     display: flex;
     justify-content: center;
     width: 100%;
+
   }
   .post{
     padding: 1rem;
   }
   .Post{
     padding: 0 1rem 1rem;
+    /* position: relative; */
   }
   .personal-feature{
     padding: .6rem 1rem;
@@ -38,7 +40,7 @@
   .personal-feature .myphoto img{
     width: 2.6rem;
     height: 2.6rem;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
 }
   .personal-feature input{
@@ -162,7 +164,7 @@
 .create-post .content .profile .img-con img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
 }
 .create-post .content .profile p{
@@ -345,7 +347,7 @@
 .post .post-Container .header .data-post .left .img-con img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .post .post-Container .header .data-post .left .text .name{
     color: black;
@@ -583,7 +585,7 @@
 .post .post-Container .bottom .img-con img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
 }
 .post .post-Container .footer .newcommentadded .content{
@@ -845,9 +847,9 @@
   /* margin-bottom: .3rem; */
 }
 
-.account-container .content form .mobil-pass{
+/* .account-container .content form .mobil-pass{
   margin-bottom: .5rem;
-}
+} */
 .account-container .content form .mobil-pass p{
    font-size: 14px;
 }
@@ -884,6 +886,47 @@
   font-size: clamp(14px,2.5vw,17px);
   margin-bottom: .5rem;
   cursor: pointer;
+}
+.upload-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.upload-img .upload{
+  width: 100px;
+  max-height: 120px;
+  min-height: 33px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #d4d4d4;
+  cursor: pointer;
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+}
+.upload-img .upload .img-con img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+.upload-img .upload .info{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  /* border-top: 1px solid #d4d4d4; */
+  background-color: #c4c4c4;
+  width: 100%;
+}
+
+.upload-img .upload{
+  font-size: 14px;
 }
 @media (max-width:576px) {
   .account-container .content form .body{
@@ -1022,9 +1065,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  /* background-color: #f3f3f3cb; */
   background-color: #f3f3f3cb;
   z-index: 100;
   padding: 1rem;
+  overflow: hidden;
 }
 .delete-container  .content{
   border-radius: 15px;
