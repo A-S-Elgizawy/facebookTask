@@ -11,7 +11,7 @@ const Home = () => {
   const [opendetails, setOpendetails] = useState({});
   const [preview, setPreview] = useState(null);
   const [position, setPosition] = useState("down");
-  const menuRef = useRef(null)
+  const menuRef = useRef({})
   const isDisabled = !text && !image;
 
     const handleImage = (e) => {
@@ -41,25 +41,31 @@ const Home = () => {
     setPreview(null);
   };
   
-    useEffect(() => {
-    function handleClickOutside(e) {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setOpendetails(false);
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    let clickedInside = false;
+
+    Object.values(menuRef.current).forEach(ref => {
+      if (ref && ref.contains(e.target)) {
+        clickedInside = true;
       }
+    });
+
+    if (!clickedInside) {
+      setOpendetails({});
     }
+  };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
 
-const toggleDropdown = (id, e) => {
-//   setShowdetails(prev => (prev === id ? null : id)); لبوست واحد فقط
-    setOpendetails(prev => ({
-    ...prev,
-    [id]: !prev[id], // يقلب حالة البوست الحالي فقط
-  }));
+    const toggleMenu = (id,e) => {
+        setOpendetails(prev => ({
+            ...prev,
+            [id]: !prev[id],   // يفتح ويقفل لنفس البوست
+        }));
+
 
   const rect = e.currentTarget.getBoundingClientRect();
   const spaceBelow = window.innerHeight - rect.bottom;
@@ -184,7 +190,7 @@ const toggleDropdown = (id, e) => {
                             </div>
                             </div>
                             <div className="right">
-                            <div className="icon-con togglebtn" ref={menuRef} onClick={(e) => toggleDropdown(post.id,e)}><i className='bx  bx-dots-horizontal-rounded'></i>
+                            <div className="icon-con togglebtn" ref={el => (menuRef.current[post.id] = el)} onClick={(e) => toggleMenu(post.id,e)}><i className='bx  bx-dots-horizontal-rounded'></i>
                             {opendetails[post.id] && (
                                 <div className={`dropdown ${position}`}>
                                     <div className="item">

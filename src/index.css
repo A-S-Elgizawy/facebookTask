@@ -76,8 +76,8 @@
 }
 @media (max-width:576px) {
     .personal-feature .featuers .img-con img{
-      width: auto;
-      height: auto;
+      width: 20px;
+      height: 20px;
       object-fit: cover;
     }
     .personal-feature .featuers .img-con{
@@ -1019,7 +1019,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: #f3f3f3cb;
