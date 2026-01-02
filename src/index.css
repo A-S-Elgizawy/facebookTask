@@ -1031,17 +1031,22 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  transition: .5s ease;
 }
 .message.success i{
   color: rgb(0, 197, 0);
   font-size: 22px;
 }
 .message.success.active{
-  top: 1rem;
+  animation: message .4s linear forwards;
 }
+
 .message.error.active{
-  top: 1rem;
+  animation: message .4s linear forwards;
+}
+@keyframes message {
+  to{
+    top: 1rem;
+  }
 }
 .message.error i{
   color: red;

@@ -162,16 +162,16 @@ useEffect(() => {
                     
                     <div className="featuers">
                         <div className="img-con vedio" >
-                            <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yr/r/c0dWho49-X3.png" alt="" />
+                            <img src="video.png" alt="" />
                         </div>
                         <div className="img-con" onClick={() => setShowPage(true)}>
                             <input type="file" hidden id="uploadDirect" accept="image/*"  onChange={handleImage}/>
                             <label htmlFor="uploadDirect">
-                                <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt="" />
+                                <img src="photo.png" alt="" />
                             </label>
                         </div>
                         <div className="img-con emo">
-                            <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt="" />
+                            <img src="emotion.png" alt="" />
                         </div>
                     </div>
             </div>
@@ -215,20 +215,20 @@ useEffect(() => {
                     <div className="img-con"  data-text="Photo/vedio" >
                     <input hidden id="upload" type="file" accept="image/*"  onChange={handleImage}/>
                         <label htmlFor="upload">
-                        <img  src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt=""/>
+                        <img  src="photo.png" alt=""/>
                         </label>
                     </div>
                     <div className="img-con tempo" data-text="Tage people">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yq/r/b37mHA1PjfK.png" alt=""/>
+                        <img src="poeple.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="Feeling/Activity">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt=""/>
+                        <img src="emotion.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="checke in">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/8zlaieBcZ72.png" alt=""/>
+                        <img src="loca.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="GIF">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yT/r/q7MiRkL7MLC.png" alt=""/>
+                        <img src="gift.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="More">
                         <i className='bx  bx-dots-horizontal-rounded'></i> 
@@ -389,20 +389,20 @@ useEffect(() => {
                     <div className="img-con"  data-text="Photo/vedio" >
                     <input hidden id="upload" type="file" accept="image/*"  onChange={handleImage}/>
                         <label htmlFor="upload">
-                        <img  src="https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png" alt=""/>
+                        <img  src="photo.png" alt=""/>
                         </label>
                     </div>
                     <div className="img-con tempo" data-text="Tage people">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yq/r/b37mHA1PjfK.png" alt=""/>
+                        <img src="poeple.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="Feeling/Activity">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png" alt=""/>
+                        <img src="emotion.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="checke in">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/y1/r/8zlaieBcZ72.png" alt=""/>
+                        <img src="loca.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="GIF">
-                        <img src="https://static.xx.fbcdn.net/rsrc.php/v4/yT/r/q7MiRkL7MLC.png" alt=""/>
+                        <img src="gift.png" alt=""/>
                     </div>
                     <div className="img-con tempo" data-text="More">
                         <i className='bx  bx-dots-horizontal-rounded'></i> 
