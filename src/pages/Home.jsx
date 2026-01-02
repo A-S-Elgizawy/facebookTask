@@ -138,8 +138,13 @@ useEffect(() => {
                 <div className="camera">
                     {/* {profileImage ? ( */}
                         <div className="img-con myphoto">
-                        <img className="myimg" src={Imageprofile || "/default-avatar.png"} alt="preview" />
-                        <img className="faceimg" src="https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA" alt="" />
+                        <img className="myimg" 
+                          src={
+                                Imageprofile
+                                ? Imageprofile
+                                : "https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA"
+                            }
+                        />
                         </div>
                     {/* // ):( */}
                     {/* <div className="img-con myphoto">
@@ -186,7 +191,13 @@ useEffect(() => {
             <hr/>
             <div className="profile">
                 <div className="img-con">
-                    <img src={Imageprofile || "/default-avatar.png"} alt=""/>
+                    <img 
+                        src={
+                            Imageprofile
+                            ? Imageprofile
+                            : "https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA"
+                        }
+                    />
                 </div>
                 <p>{User?.firstname} {User?.surname}</p>
             </div>
@@ -324,7 +335,13 @@ useEffect(() => {
                         <hr/>
                         <div className="bottom ">
                             <div className="img-con">
-                                <img src={Imageprofile || "/default-avatar.png"} alt=""/>
+                                <img 
+                                src={
+                                    Imageprofile
+                                    ? Imageprofile
+                                    : "https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA"
+                                }
+                                />
                             </div>
                             <div className="input-con" >
                                 <input type="text" placeholder="comment"/>
@@ -348,7 +365,13 @@ useEffect(() => {
             <hr/>
             <div className="profile">
                 <div className="img-con">
-                    <img src={Imageprofile || "/default-avatar.png"} alt=""/>
+                    <img 
+                        src={
+                             Imageprofile
+                            ? Imageprofile
+                            : "https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA"
+                        }
+                    />
                 </div>
                 <p>{User?.firstname} {User?.surname}</p>
             </div>

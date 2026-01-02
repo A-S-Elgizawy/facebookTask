@@ -16,12 +16,12 @@ const Login = () =>{
         setLoginStatus("success");
         setTimeout(() => {
           navigate("/Home");
-        }, 2000);
+        }, 1500);
     } else {
      setLoginStatus("error");
       setTimeout(() => {
         setLoginStatus(null);
-      }, 2000);
+      }, 1500);
     }
 }
 

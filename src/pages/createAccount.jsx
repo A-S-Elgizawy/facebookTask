@@ -14,7 +14,6 @@ const Account = () =>{
     const user = { email, password , firstname , surname};
 
     localStorage.setItem("user", JSON.stringify(user));
-    alert("تم إنشاء الحساب بنجاح");
     navigate("/Login")
   }
 
