@@ -98,7 +98,7 @@ const handleProfileImage = (e) => {
                          <input  type="password" placeholder="New password" onChange={(e) => setPassword(e.target.value)} required/>
                     </div>
                 </div>
-                <div className="upload-img">
+                {/* <div className="upload-img">
                          <div className="img-con" >
                             <input type="file" hidden id="uploadDirect" accept="image/*"  onChange={handleProfileImage}/>
                             <label htmlFor="uploadDirect">
@@ -115,7 +115,7 @@ const handleProfileImage = (e) => {
                                 </div>
                             </label>
                         </div>
-                </div>
+                </div> */}
                 <div className="footer">
                     <p>People who use our service may have uploaded your contact information to Facebook. <span> Learn more.</span></p>
                     <p>By clicking Sign up, you agree to our <span> Terms, Privacy Policy.</span> and <span>Cookies Policy.</span> You may receive SMS notifications from us and can opt out at any time.</p>

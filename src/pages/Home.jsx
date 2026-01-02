@@ -16,6 +16,23 @@ const Home = () => {
   const menuRef = useRef({})
   const isDisabled = !text && !image;
 
+const [profileImage, setProfileImage] = useState(null);
+const handleProfileImage = (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onloadend = () => {
+    setProfileImage(reader.result);
+    localStorage.setItem("profileImage", reader.result); // ✅ حفظ
+  };
+
+  reader.readAsDataURL(file);
+};
+
+const Imageprofile = localStorage.getItem("profileImage");
+
     const handleImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -95,7 +112,7 @@ useEffect(() => {
   return () => document.removeEventListener("mousedown", handleClickOutside);
 }, []);
 
-    const toggleMenu = (id,e) => {
+  const toggleMenu = (id,e) => {
         setOpendetails(prev => ({
             ...prev,
             [id]: !prev[id],   // يفتح ويقفل لنفس البوست
@@ -112,14 +129,29 @@ useEffect(() => {
 
    
 };
-const profileImage = localStorage.getItem("profileImage");
+
   return (
     <div className="post-container row gx-0">
         {/*add post*/}
         <div className="post col-lg-7 col-md-7 col-sl-12">
             <div className="personal-feature ">
-                    <div className="img-con myphoto">
-                        <img src={profileImage || "/default-avatar.png"} alt="" />
+                <div className="camera">
+                    {/* {profileImage ? ( */}
+                        <div className="img-con myphoto">
+                        <img className="myimg" src={Imageprofile || "/default-avatar.png"} alt="preview" />
+                        <img className="faceimg" src="https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA" alt="" />
+                        </div>
+                    {/* // ):( */}
+                    {/* <div className="img-con myphoto">
+                        <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s160x160&_nc_cat=1&_nc_cb=99be929b-f3b7c874&ccb=1-7&_nc_sid=136b72&_nc_ohc=rEFmZcvck6gQ7kNvwGD6yiR&_nc_oc=AdkZe5Jv1o9FfmKKi48QdxRyunVl3R37FPkowRTSXBzhvtSkj-XrZ8kOVnnPZK5QAk8&_nc_zt=24&_nc_ht=scontent.fcai21-3.fna&oh=00_Afo8o7xJP4M5uMV3AZ2E58vveqEUM0cQYs2z-AMy_TRwNA&oe=697F14BA" alt="" />
+                    </div> */}
+                    {/* // )} */}
+                       <div className="icon-con">
+                        <input type="file" hidden id="uploadDirect" accept="image/*"  onChange={handleProfileImage}/>
+                        <label htmlFor="uploadDirect"> 
+                          <i className='bx  bx-camera-alt'></i> 
+                        </label>
+                       </div>
                     </div>
                     <input type="text" placeholder="What's your on mind?" onClick={() => setShowPage(true)} />
                     
@@ -154,12 +186,12 @@ const profileImage = localStorage.getItem("profileImage");
             <hr/>
             <div className="profile">
                 <div className="img-con">
-                    <img src={profileImage || "/default-avatar.png"} alt=""/>
+                    <img src={Imageprofile || "/default-avatar.png"} alt=""/>
                 </div>
                 <p>{User?.firstname} {User?.surname}</p>
             </div>
             <div className="caption-img">
-            <input type="text" placeholder="What's on your mind, Ahmed" value={text}  onChange={(e) => setText(e.target.value)}/>
+            <input type="text" placeholder="What's on your mind?" value={text}  onChange={(e) => setText(e.target.value)}/>
                     {preview && (
                     <div className="img-con">
                         <img src={preview} alt="preview" />
@@ -206,7 +238,7 @@ const profileImage = localStorage.getItem("profileImage");
                         <div className="data-post">
                             <div className="left">
                             <div className="img-con">
-                                <img src={profileImage || "/default-avatar.png"} alt=""/>
+                                <img src={Imageprofile || "/default-avatar.png"} alt=""/>
                             </div>
                             <div className="text">
                                 <p className="name">{User?.firstname} {User?.surname}</p>
@@ -292,7 +324,7 @@ const profileImage = localStorage.getItem("profileImage");
                         <hr/>
                         <div className="bottom ">
                             <div className="img-con">
-                                <img src={profileImage || "/default-avatar.png"} alt=""/>
+                                <img src={Imageprofile || "/default-avatar.png"} alt=""/>
                             </div>
                             <div className="input-con" >
                                 <input type="text" placeholder="comment"/>
@@ -316,7 +348,7 @@ const profileImage = localStorage.getItem("profileImage");
             <hr/>
             <div className="profile">
                 <div className="img-con">
-                    <img src={profileImage || "/default-avatar.png"} alt=""/>
+                    <img src={Imageprofile || "/default-avatar.png"} alt=""/>
                 </div>
                 <p>{User?.firstname} {User?.surname}</p>
             </div>

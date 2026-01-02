@@ -32,16 +32,51 @@
     background-color: white;
     /* width: 30rem; */
 }
+.camera {
+  position: relative;
+}
+.camera .icon-con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  background-color: #d1d1d1;
+  cursor: pointer;
+  z-index: 4;
+}
+.camera .icon-con i{
+  height: 0;
+  padding-top: 4px;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
+}
   .personal-feature .myphoto{
+    position: relative;
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
   .personal-feature .myphoto img{
-    width: 2.6rem;
-    height: 2.6rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 50%;
+}
+  .personal-feature .myphoto .myimg{
+    z-index: 3;
+}
+  .personal-feature .myphoto .faceimg{
+    z-index: 2;
 }
   .personal-feature input{
     border: none;
@@ -982,6 +1017,35 @@
   background-color: #f0f2f5;
   width: 100%;
   min-height: 100dvh;
+}
+.message{
+  padding: 10px 1.5rem;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, .1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 1rem;
+  position: fixed;
+  top: -6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  transition: .5s ease;
+}
+.message.success i{
+  color: rgb(0, 197, 0);
+  font-size: 22px;
+}
+.message.success.active{
+  top: 1rem;
+}
+.message.error.active{
+  top: 1rem;
+}
+.message.error i{
+  color: red;
+  font-size: 22px;
 }
 .login .content{
   display: flex;

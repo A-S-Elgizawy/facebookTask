@@ -4,6 +4,8 @@ const Login = () =>{
   const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const success = document.querySelector('.success')
+    const error = document.querySelector('.error')
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,14 +14,29 @@ const Login = () =>{
 
     if (user?.email === email && user?.password === password) {
       localStorage.setItem("isAuth", "true");
-      navigate("/Home");
+      success.classList.add('active')
+      setTimeout(() => {
+        navigate("/Home");
+      }, 2000);
     } else {
-      alert("بيانات غير صحيحة");
+      error.classList.add('active')
+      setTimeout(() => {
+        error.classList.remove('active')
+      }, 2000);
     }
 }
 
     return (
+
         <div className="login row gx-0">
+          <div className="message success">
+            <i className='bx  bx-check-circle'></i> 
+            <p>Login successful</p>
+          </div>
+          <div className="message error">
+            <i className='bx  bx-x-circle'></i>  
+            <p>Invalid login credentials</p>
+          </div>
             <div className="content col-sl-12 col-lg-6">
                 <h1>Facebook</h1>
                 <form action="" onSubmit={handleLogin}>
