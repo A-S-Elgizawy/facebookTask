@@ -4,8 +4,7 @@ const Login = () =>{
   const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const success = document.querySelector('.success')
-    const error = document.querySelector('.error')
+    const [loginStatus, setLoginStatus] = useState(null);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,14 +13,14 @@ const Login = () =>{
 
     if (user?.email === email && user?.password === password) {
       localStorage.setItem("isAuth", "true");
-      success.classList.add('active')
-      setTimeout(() => {
-        navigate("/Home");
-      }, 2000);
+        setLoginStatus("success");
+        setTimeout(() => {
+          navigate("/Home");
+        }, 2000);
     } else {
-      error.classList.add('active')
+     setLoginStatus("error");
       setTimeout(() => {
-        error.classList.remove('active')
+        setLoginStatus(null);
       }, 2000);
     }
 }
@@ -29,14 +28,19 @@ const Login = () =>{
     return (
 
         <div className="login row gx-0">
-          <div className="message success">
-            <i className='bx  bx-check-circle'></i> 
-            <p>Login successful</p>
-          </div>
-          <div className="message error">
-            <i className='bx  bx-x-circle'></i>  
-            <p>Invalid login credentials</p>
-          </div>
+          {loginStatus === "success" && (
+            <div className="message success active">
+              <i className='bx bx-check-circle'></i>
+              <p>Login successful</p>
+            </div>
+          )}
+
+          {loginStatus === "error" && (
+            <div className="message error active">
+              <i className='bx bx-x-circle'></i>
+              <p>Invalid login credentials</p>
+            </div>
+          )}
             <div className="content col-sl-12 col-lg-6">
                 <h1>Facebook</h1>
                 <form action="" onSubmit={handleLogin}>
