@@ -46,10 +46,10 @@ const Login = () =>{
                 <form action="" onSubmit={handleLogin}>
                     <input type="text"  placeholder="Email address or Phone number"  onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                    <button >Log in</button>
+                    <button type="submit">Log in</button>
                     <p>Forgotten password?</p>
                     <div className="btn-con">
-                        <button type="submit" onClick={() => navigate("/account")}>Create new account</button>
+                        <button  onClick={() => navigate("/account")}>Create new account</button>
                     </div>
                 </form>
             </div>
