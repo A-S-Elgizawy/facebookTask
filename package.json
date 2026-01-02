@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/A-S-Elgizawy/facebookTask.git",
+  "homepage": "https://github.com/A-S-Elgizawy/Task.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
