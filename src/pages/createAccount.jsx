@@ -43,7 +43,7 @@ const handleProfileImage = (e) => {
     return (
     <div className="account-container row gx-0">
          <div className="content  col-lg-6 col-sl-12">
-            <h1>Facebook</h1>
+            <h1>Facebook Task</h1>
             <form action="" onSubmit={handleRegister}>
                 <div className="head">
                     <h2>Create a new account</h2>

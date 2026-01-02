@@ -42,7 +42,7 @@ const Login = () =>{
             </div>
           )}
             <div className="content col-sl-12 col-lg-6">
-                <h1>Facebook</h1>
+                <h1>Facebook Task</h1>
                 <form action="" onSubmit={handleLogin}>
                     <input type="text"  placeholder="Email address or Phone number"  onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
